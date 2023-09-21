@@ -1,9 +1,10 @@
 import { View, Text } from "react-native";
+import styles from "./style";
 
 export default function Title() {
   return (
     <View>
-      <Text>Minha Lista de Tarefas</Text>
+      <Text style={styles.title}>Minha Lista de Tarefas</Text>
     </View>
   );
 }
