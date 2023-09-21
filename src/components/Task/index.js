@@ -14,6 +14,5 @@ export default function Task() {
         <Text>Ler um livro</Text>
       </View>
     </View>
-
   );
 }
