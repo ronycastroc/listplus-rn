@@ -3,8 +3,10 @@ import styles from "./style";
 
 export default function Title() {
   return (
-    <View>
-      <Text style={styles.title}>Lista de Tarefas</Text>
+    <View style={styles.titleContent}>
+      <View style={styles.circle}>
+        <Text style={styles.title}>List+</Text>
+      </View>
     </View>
   );
 }
