@@ -1,7 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
 import { CheckBox } from '@rneui/themed';
 import styles from "./style";
-import { useState } from "react";
 
 export default function Task({ todo, setTodo }) {
   function toggleCheck(id) {
@@ -22,31 +21,37 @@ export default function Task({ todo, setTodo }) {
 
   return (
     <View>
-      {todo.map((task, index) => (
-        <View style={styles.taskContent} key={index}>
-          <CheckBox
-            size={25}
-            checkedColor="black"
-            onPress={() => toggleCheck(task.id)}
-            checked={task.checked}
-          />
-          <View style={styles.taskText}>
-            <Text style={{
-              fontSize: 16,
-              textDecorationLine: task.checked ? "line-through" : "none"
-            }}
+      {todo.length === 0 ? (
+        <View style={styles.titleContent}>
+          <Text style={styles.taskTitle}>Nenhuma tarefa adicionada</Text>
+        </View>        
+      ) : (
+        todo.map((task, index) => (
+          <View style={styles.taskContent} key={index}>
+            <CheckBox
+              size={25}
+              checkedColor="black"
+              onPress={() => toggleCheck(task.id)}
+              checked={task.checked}
+            />
+            <View style={styles.taskText}>
+              <Text style={{
+                fontSize: 16,
+                textDecorationLine: task.checked ? "line-through" : "none"
+              }}
+              >
+                {task.name}
+              </Text>
+            </View>
+            <TouchableOpacity
+              style={styles.button}
+              onPress={() => deleteTask(task.id)}
             >
-              {task.name}
-            </Text>
+              <Text style={styles.textButton}>x</Text>
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => deleteTask(task.id)}
-          >
-            <Text style={styles.textButton}>x</Text>
-          </TouchableOpacity>
-        </View>
-      ))}
+        ))
+      )}
     </View>
   );
 }
