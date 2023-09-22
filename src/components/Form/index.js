@@ -4,17 +4,16 @@ import { useState } from "react";
 
 export default function Form({ todo, setTodo }) {
   const [inputText, setInputText] = useState("");
-  const [refresh, setRefresh] = useState(false);
-  
+
   function handleForm() {
     const body = {
-      id: todo.length + 1,
+      id: new Date().getTime(),
       name: inputText,
+      checked: false
     }
 
     setInputText("");
     setTodo([...todo, body]);
-    setRefresh(!refresh);
   }
   
   return (

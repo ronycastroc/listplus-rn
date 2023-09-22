@@ -10,7 +10,7 @@ export default function Main() {
   return (
     <View style={styles.mainContainer}>
       <Form todo={todo} setTodo={setTodo} />
-      <Task todo={todo} />
+      <Task todo={todo} setTodo={setTodo} />
     </View>
   );
 }
