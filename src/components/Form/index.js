@@ -15,8 +15,6 @@ export default function Form({ todo, setTodo }) {
     setInputText("");
     setTodo([...todo, body]);
     setRefresh(!refresh);
-
-    console.log(todo);
   }
   
   return (

@@ -1,9 +1,9 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
-  taskBox: {
+  taskContent: {
     flexDirection: "row",
-    alignItems: "center"
+    alignItems: "center",
   }
 });
 
